@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minhas Receitas</title>
+  <link rel="stylesheet" href="receitas.css">
+</head>
+<body>
+  <h1>Minhas Receitas</h1>
+  <div class="receita-container">
+    <h2>Receita Médica - Antibiótico</h2>
+    <p>
+      Emitida por: <strong>Dra. Camila Santos (Clínica Geral)</strong><br>
+      Data: <strong>01/05/2025</strong><br>
+      Medicamento: Amoxicilina 500mg (1 cápsula a cada 8 horas por 7 dias)
+    </p>
+    
+    <button onclick="mostrarmensagem()">Download</button>
+    <script> 
+      function mostrarmensagem() {
+        alert("Receita baixada com sucesso!");
+      }
+
+    </script>
+  </div>
+  <br>
+  <div class="receita-container">
+    <h2>Receita de Óculos - Atualização</h2>
+    <p>
+      Emitida por: <strong>Dr. Ricardo Almeida (Oftalmologista)</strong><br>
+      Data: <strong>10/04/2025</strong><br>
+      Detalhes: Lentes multifocais com correção para miopia e astigmatismo.
+    </p>
+    <button onclick="mostrarmensagem()">Download</button>
+    <script> 
+      function mostrarmensagem() {
+        alert("Receita baixada com sucesso!");
+      }
+
+    </script>
+  </div>
+  <br><br>
+  <button onclick="window.location.href='../../index.html#opcoes'">Voltar</button>
+</body>
+</html>

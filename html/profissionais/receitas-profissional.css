@@ -1,0 +1,242 @@
+:root {
+  /* Cores */
+  --primary-color: #2c7be5;
+  --primary-hover: #1d4ed8;
+  --background-color: #0f172a;
+  --card-background: #112641;
+  --text-color: #ffffff;
+  --text-light: #666;
+  --border-color: #e0e0e0;
+  --error-color: #dc3545;
+  --white: #fff;
+  --add-item: #10b981;
+
+  /* Sombras */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  /* Fontes */
+  --font-family: 'Inter', sans-serif;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #121212;
+    --card-background: #1e1e1e;
+    --text-color: #e0e0e0;
+    --text-light: #a0a0a0;
+    --border-color: #333;
+  }
+}
+
+/* Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: #07172a;
+  color: white;
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+.prescriptions-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Header */
+.prescriptions-header {
+  text-align: center;
+}
+
+.prescriptions-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.prescriptions-header p {
+  font-size: 1rem;
+  color: white;
+}
+
+/* Formulário de Prescrição */
+.prescription-form-container {
+  background-color: #112641;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+}
+
+.form-section {
+  margin-bottom: 2rem;
+}
+
+.form-section h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: #112641;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+}
+
+.form-group input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.2);
+}
+
+
+#medications-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.medication-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+.medication-item input {
+  padding: 0.75rem;
+}
+
+.btn-remove-med {
+  background-color: var(--error-color);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 10px;
+  width: 132px;
+  height: 32px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-add-med {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px dashed var(--add-item);
+  background: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.btn-action {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-preview {
+  background-color: #0070f3;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.btn-generate {
+  background: #0070f3;
+  color: var(--white);
+}
+
+/* Rodapé */
+.prescriptions-footer {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  background-color: #0070f3;
+  color: white;
+  border: 1px solid var(--border-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-voltar svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .medication-item {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-action, .btn-voltar {
+    transition: none;
+  }
+}

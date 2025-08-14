@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda do Profissional - SGP</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="agenda-profissional.css">
+</head>
+<body>
+
+  <div class="agenda-wrapper">
+    <!-- Cabeçalho -->
+    <header class="agenda-header">
+      <h1>Minha Agenda</h1>
+      <p>Visualize e gerencie seus compromissos.</p>
+    </header>
+
+    <!-- Controles da Agenda -->
+    <div class="agenda-controls">
+      <div class="date-navigation">
+        <button class="btn-nav" id="prev-day">&lt; Dia Anterior</button>
+        <h2 id="current-date">18 de Julho, 2024</h2>
+        <button class="btn-nav" id="next-day">Próximo Dia &gt;</button>
+      </div>
+      <input type="date" id="date-picker" class="date-picker">
+    </div>
+
+    <!-- Lista de Consultas -->
+    <main class="appointments-list">
+      <!-- Exemplo de Consulta Agendada -->
+      <div class="appointment-card">
+        <div class="appointment-time">09:00 - 09:45</div>
+        <div class="appointment-details">
+          <span class="patient-name">Carlos Andrade</span>
+          <span class="appointment-type">Consulta de Rotina</span>
+        </div>
+        <div class="appointment-actions">
+          <button class="btn-action btn-details">Ver Detalhes</button>
+          <button class="btn-action btn-cancel">Cancelar</button>
+        </div>
+      </div>
+
+      <!-- Exemplo de Horário Vago -->
+      <div class="appointment-card available">
+        <div class="appointment-time">10:00 - 10:45</div>
+        <div class="appointment-details">
+          <span class="status-available">Horário Vago</span>
+        </div>
+        <div class="appointment-actions">
+          <button class="btn-action btn-schedule">Agendar</button>
+        </div>
+      </div>
+
+      <!-- Mais consultas aqui... -->
+      <div class="appointment-card">
+        <div class="appointment-time">11:00 - 11:45</div>
+        <div class="appointment-details">
+          <span class="patient-name">Mariana Costa</span>
+          <span class="appointment-type">Teleconsulta</span>
+        </div>
+        <div class="appointment-actions">
+          <button class="btn-action btn-details">Ver Detalhes</button>
+          <button class="btn-action btn-cancel">Cancelar</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Rodapé com Ações -->
+    <footer class="agenda-footer">
+      <a href="dashboard-profissional.html" class="btn-voltar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        Voltar ao Dashboard
+      </a>
+    </footer>
+  </div>
+
+</body>
+</html>

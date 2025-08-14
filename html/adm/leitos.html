@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciamento de Leitos - Vida Plus</title>
+  <link rel="stylesheet" href="leitos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="leitos-wrapper">
+    <header class="leitos-header">
+      <h1>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 4h20v16H2z"></path>
+          <path d="M4 8h.01M4 12h.01M4 16h.01M8 4v16M12 4v16M16 4v16M20 8h.01M20 12h.01M20 16h.01"></path>
+        </svg>
+        Gerenciamento de Leitos
+      </h1>
+      <p>Controle de internações e disponibilidade de leitos hospitalares</p>
+    </header>
+
+    <div class="dashboard-stats">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="9" y1="21" x2="9" y2="9"></line>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">42</span>
+          <span class="stat-label">Total de Leitos</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">15</span>
+          <span class="stat-label">Leitos Disponíveis</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">27</span>
+          <span class="stat-label">Pacientes Internados</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="leitos-section">
+      <h2>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3h18v18H3zM12 8v8M8 12h8"></path>
+        </svg>
+        Nova Internação
+      </h2>
+      <p>Preencha os dados abaixo para registrar uma nova internação de paciente</p>
+      
+      <div class="form-group">
+        <label for="paciente">Paciente</label>
+        <select id="paciente" class="form-control">
+          <option value="">Selecione o paciente</option>
+          <option value="1">Ana Silva - CPF 123.456.789-00</option>
+          <option value="2">Carlos Oliveira - CPF 987.654.321-00</option>
+          <option value="3">Mariana Santos - CPF 456.789.123-00</option>
+          <option value="4">João Pereira - CPF 789.123.456-00</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="tipo-leito">Tipo de Leito</label>
+          <select id="tipo-leito" class="form-control">
+            <option value="">Selecione o tipo</option>
+            <option value="enfermaria">Enfermaria</option>
+            <option value="apartamento">Apartamento</option>
+            <option value="uti">UTI</option>
+            <option value="uti-covid">UTI COVID</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="numero-leito">Número do Leito</label>
+          <select id="numero-leito" class="form-control">
+            <option value="">Selecione o leito</option>
+            <option value="101">101</option>
+            <option value="102">102</option>
+            <option value="103">103</option>
+            <option value="201">201</option>
+            <option value="202">202</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="data-internacao">Data de Internação</label>
+          <input type="date" id="data-internacao" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="hora-internacao">Hora</label>
+          <input type="time" id="hora-internacao" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="medico-responsavel">Médico Responsável</label>
+        <select id="medico-responsavel" class="form-control">
+          <option value="">Selecione o médico</option>
+          <option value="1">Dr. Roberto Almeida - CRM 12345</option>
+          <option value="2">Dra. Fernanda Costa - CRM 54321</option>
+          <option value="3">Dr. Marcelo Souza - CRM 67890</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="motivo-internacao">Motivo da Internação</label>
+        <textarea id="motivo-internacao" class="form-control" rows="4" placeholder="Descreva o motivo da internação e observações importantes"></textarea>
+      </div>
+
+      <div class="button-group">
+        <button id="btn-internar" class="btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+            <polyline points="7 3 7 8 15 8"></polyline>
+          </svg>
+          Registrar Internação
+        </button>
+        <button id="btn-limpar" class="btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            <line x1="10" y1="11" x2="10" y2="17"></line>
+            <line x1="14" y1="11" x2="14" y2="17"></line>
+          </svg>
+          Limpar Formulário
+        </button>
+      </div>
+    </div>
+
+    <div class="leitos-section">
+      <h2>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        Internações Recentes
+      </h2>
+      <p>Lista das últimas internações registradas no sistema</p>
+
+      <div class="internacoes-lista">
+        <div class="internacao-item">
+          <div class="internacao-info">
+            <h3>Ana Silva</h3>
+            <p><strong>Leito:</strong> UTI - 103</p>
+            <p><strong>Data:</strong> 15/06/2023 - 14:30</p>
+            <p><strong>Médico:</strong> Dr. Roberto Almeida</p>
+            <p><strong>Status:</strong> <span class="status-ativo">Internado</span></p>
+          </div>
+          <div class="internacao-acoes">
+            <button class="btn-icon" title="Ver detalhes">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+            <button class="btn-icon" title="Editar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+              </svg>
+            </button>
+            <button class="btn-icon btn-alta" title="Dar alta">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="internacao-item">
+          <div class="internacao-info">
+            <h3>Carlos Oliveira</h3>
+            <p><strong>Leito:</strong> Enfermaria - 201</p>
+            <p><strong>Data:</strong> 14/06/2023 - 09:15</p>
+            <p><strong>Médico:</strong> Dra. Fernanda Costa</p>
+            <p><strong>Status:</strong> <span class="status-ativo">Internado</span></p>
+          </div>
+          <div class="internacao-acoes">
+            <button class="btn-icon" title="Ver detalhes">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+            <button class="btn-icon" title="Editar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+              </svg>
+            </button>
+            <button class="btn-icon btn-alta" title="Dar alta">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="internacao-item">
+          <div class="internacao-info">
+            <h3>Mariana Santos</h3>
+            <p><strong>Leito:</strong> Apartamento - 102</p>
+            <p><strong>Data:</strong> 12/06/2023 - 16:45</p>
+            <p><strong>Médico:</strong> Dr. Marcelo Souza</p>
+            <p><strong>Status:</strong> <span class="status-alta">Alta Médica</span></p>
+          </div>
+          <div class="internacao-acoes">
+            <button class="btn-icon" title="Ver detalhes">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+            <button class="btn-icon" title="Imprimir relatório">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-back" onclick="window.location.href='dashadm.html'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Voltar
+    </button>
+  </div>
+
+  <script>
+    document.getElementById('btn-internar').addEventListener('click', function() {
+      alert('Internação registrada com sucesso!');
+    });
+
+    document.getElementById('btn-limpar').addEventListener('click', function() {
+      document.querySelectorAll('input, select, textarea').forEach(function(el) {
+        el.value = '';
+      });
+    });
+
+    document.querySelectorAll('.btn-alta').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (confirm('Confirma a alta do paciente?')) {
+          alert('Alta registrada com sucesso!');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

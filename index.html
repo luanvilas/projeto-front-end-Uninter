@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vida Plus - Sistema Hospitalar</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="login-container" id="login">
+    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: 0 auto 1.5rem;">
+      <path d="M60 10C32.4 10 10 32.4 10 60C10 87.6 32.4 110 60 110C87.6 110 110 87.6 110 60C110 32.4 87.6 10 60 10ZM85 65H65V85H55V65H35V55H55V35H65V55H85V65Z" fill="#2c7be5"/>
+    </svg>
+    <h2>Vida Plus</h2>
+    <input type="text" id="username" placeholder="Usuário">
+    <input type="password" id="password" placeholder="Senha">
+    <select id="role">
+      <option value="paciente">Paciente</option>
+      <option value="profissional">Profissional</option>
+      <option value="adm">Administrador</option>
+    </select>
+    <button onclick="login()">Entrar</button>
+    <button onclick="window.location.href='cadastro.html'" style="background-color: var(--secondary-color); margin-top: 16px;">Cadastrar</button>
+  </div>
+
+  <section id="opcoes">
+    <div class="dashboard" id="dashboard">
+      <h2>Bem-vindo(a) ao Vida Plus</h2>
+      <div class="menu">
+        <button onclick="window.location.href='html/pacientes/perfil.html'">Meu Perfil</button>    
+        <button onclick="window.location.href='html/pacientes/historico.html'">Histórico Clínico</button>
+        <button onclick="window.location.href='html/pacientes/exames.html'">Meus Exames</button>
+        <button onclick="window.location.href='html/pacientes/agendar consulta.html'">Agendar Consulta</button>
+        <button onclick="window.location.href='html/pacientes/teleconsulta.html'">Teleconsulta</button>
+        <button onclick="window.location.href='html/pacientes/receitas.html'">Minhas Receitas</button>
+        <button onclick="window.location.href='html/pacientes/notificacoe.html'">Notificações</button>
+        <button onclick="window.location.href='html/pacientes/configdeconta.html'">Configurações</button>
+      </div>
+      <button onclick="logout()">Sair</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

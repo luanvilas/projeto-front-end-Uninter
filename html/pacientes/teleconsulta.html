@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teleconsulta - VidaPlus</title>
+  <link rel="stylesheet" href="teleconsulta.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="teleconsulta-wrapper">
+    <header class="teleconsulta-header">
+      <h1>Teleconsulta</h1>
+      <div class="consulta-status">
+        <span class="status-indicator"></span>
+        <span class="status-text">Aguardando médico</span>
+      </div>
+    </header>
+
+    <main class="teleconsulta-main">
+      <div class="video-grid">
+        <div class="video-container video-doctor">
+          <div class="video-placeholder">
+            <svg class="doctor-icon" viewBox="0 0 24 24" width="48" height="48">
+              <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            <p>Dr. Fernando Mendes<br>Cardiologista</p>
+          </div>
+          <video id="doctorVideo" autoplay playsinline muted></video>
+        </div>
+
+        <div class="video-container video-patient">
+          <div class="video-placeholder">
+            <svg class="patient-icon" viewBox="0 0 24 24" width="48" height="48">
+              <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            <p>Você</p>
+          </div>
+          <video id="patientVideo" autoplay playsinline></video>
+        </div>
+      </div>
+
+      <div class="controls-container">
+        <button class="control-btn mic-btn" title="Microfone">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+            <path fill="currentColor" d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+          </svg>
+        </button>
+        <button class="control-btn camera-btn" title="Câmera">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+          </svg>
+        </button>
+        <button class="control-btn end-call-btn" title="Encerrar chamada">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08c-.18-.17-.29-.42-.29-.7 0-.28.11-.53.29-.71C3.34 8.78 7.46 7 12 7s8.66 1.78 11.71 4.67c.18.18.29.43.29.71 0 .28-.11.53-.29.71l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.11-.7-.28-.79-.73-1.68-1.36-2.66-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"/>
+          </svg>
+        </button>
+      </div>
+    </main>
+
+    <aside class="consulta-info">
+      <div class="info-card">
+        <h2>Informações da Consulta</h2>
+        <div class="info-item">
+          <span class="info-label">Médico:</span>
+          <span class="info-value">Dr. Fernando Mendes</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Especialidade:</span>
+          <span class="info-value">Cardiologia</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Data:</span>
+          <span class="info-value">15/06/2025</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Hora:</span>
+          <span class="info-value">09:00</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Duração prevista:</span>
+          <span class="info-value">30 minutos</span>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="secondary-btn" onclick="window.location.href='../../index.html#opcoes'">Voltar ao Menu</button>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    document.querySelector('.camera-btn').addEventListener('click', function() {
+      navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+        .then(function(stream) {
+          document.getElementById('patientVideo').srcObject = stream;
+          document.querySelector('.video-patient .video-placeholder').style.display = 'none';
+        })
+        .catch(function(err) {
+          alert('Erro ao acessar câmera: ' + err.message);
+        });
+    });
+
+    const toggleButton = (btn, isActive) => {
+      btn.classList.toggle('active', isActive);
+    };
+
+    document.querySelector('.mic-btn').addEventListener('click', function() {
+      this.classList.toggle('active');
+    });
+
+    document.querySelector('.end-call-btn').addEventListener('click', function() {
+      if(confirm('Deseja realmente encerrar a consulta?')) {
+        window.location.href = '../index.html#opcoes';
+      }
+    });
+  </script>
+</body>
+</html>

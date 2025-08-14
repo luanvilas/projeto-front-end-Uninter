@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendar Consulta</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="agendar-consulta.css">
+</head>
+<body>
+  <div class="agendamento-wrapper">
+    <header class="agendamento-header">
+      <h1>Agendar Consulta</h1>
+      <p class="header-description">Escolha o médico, especialidade e horário de sua preferência</p>
+    </header>
+
+    <main class="agendamento-main">
+      <section class="form-section">
+        <div class="form-group">
+          <label for="especialidade">Especialidade</label>
+          <select id="especialidade" required>
+            <option value="" disabled selected>Selecione a especialidade</option>
+            <option value="clinica-geral">Clínica Geral</option>
+            <option value="pediatria">Pediatria</option>
+            <option value="psiquiatria">Psiquiatria</option>
+            <option value="cardiologia">Cardiologia</option>
+            <option value="neurologia">Neurologia</option>
+            <option value="pneumologia">Pneumologia</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="medico">Médico</label>
+          <select id="medico" required>
+            <option value="" disabled selected>Selecione o médico</option>
+            <option value="laura">Dra. Laura Fernandes</option>
+            <option value="joao">Dr. João Silva</option>
+            <option value="ricardo">Dr. Ricardo Muniz</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="data">Data da Consulta</label>
+            <input type="date" id="data" required>
+          </div>
+          <div class="form-group">
+            <label for="hora">Horário</label>
+            <input type="time" id="hora" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="observacoes">Observações (opcional)</label>
+          <textarea id="observacoes" rows="3" placeholder="Informe alguma observação importante para o médico"></textarea>
+        </div>
+
+        <button type="button" class="btn-agendar" onclick="agendarConsulta()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 14V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+            <line x1="19" y1="15" x2="19" y2="21"/>
+            <line x1="16" y1="18" x2="22" y2="18"/>
+          </svg>
+          Agendar Consulta
+        </button>
+      </section>
+
+      <aside class="consultas-info">
+        <div class="proxima-consulta">
+          <h2>Próxima Consulta</h2>
+          <div class="consulta-card">
+            <div class="consulta-header">
+              <span class="consulta-status">Agendada</span>
+              <time datetime="2025-09-11 14:00">11/09/2025 às 14:00</time>
+            </div>
+            <div class="consulta-body">
+              <div class="medico-info">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <span>Dra. Laura Fernandes</span>
+              </div>
+              <div class="especialidade-info">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+                <span>Cardiologia</span>
+              </div>
+            </div>
+            <div class="consulta-actions">
+              <button type="button" class="btn-cancelar" onclick="cancelarConsulta()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="15" y1="9" x2="9" y2="15"/>
+                  <line x1="9" y1="9" x2="15" y2="15"/>
+                </svg>
+                Cancelar Consulta
+              </button>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="agendamento-footer">
+      <button type="button" class="btn-voltar" onclick="window.location.href='../../index.html#opcoes'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"/>
+          <polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Voltar ao Menu
+      </button>
+    </footer>
+  </div>
+
+  <script>
+    function agendarConsulta() {
+      alert("Consulta agendada com sucesso! Você receberá um email com a confirmação.");
+    }
+
+    function cancelarConsulta() {
+      alert("Consulta cancelada com sucesso! Você receberá um email com a confirmação.");
+    }
+  </script>
+</body>
+</html>

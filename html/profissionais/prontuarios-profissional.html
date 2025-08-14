@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prontuários dos Pacientes - SGP</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="prontuarios-profissional.css">
+</head>
+<body>
+
+  <div class="records-wrapper">
+    <!-- Cabeçalho -->
+    <header class="records-header">
+      <h1>Prontuários Eletrônicos</h1>
+      <p>Acesse e gerencie os registros médicos dos seus pacientes.</p>
+    </header>
+
+    <!-- Barra de Ferramentas -->
+    <div class="toolbar">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar prontuário">
+        <button class="btn-search">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+       xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <circle cx="11" cy="11" r="8"></circle>
+    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+        </button>
+      </div>
+      <button class="btn-add-patient">Adicionar prontuário</button>
+    </div>
+
+    <!-- Lista de Prontuários -->
+    <main class="records-list">
+      <!-- Exemplo de Card de Prontuário -->
+      <div class="record-card">
+        <div class="record-patient-info">
+          <span class="patient-name">Juliana Martins</span>
+          <span class="patient-cpf">CPF: 234.567.890-11</span>
+        </div>
+        <div class="record-summary">
+          <p><strong>Última Atualização:</strong> 12/07/2024</p>
+          <p><strong>Diagnóstico Principal:</strong> Hipertensão Arterial</p>
+        </div>
+        <div class="record-actions">
+          <button class="btn-action btn-view-record">Ver Prontuário Completo</button>
+          <button class="btn-action btn-add-entry">Nova Anotação</button>
+        </div>
+      </div>
+
+      <div class="record-card">
+        <div class="record-patient-info">
+          <span class="patient-name">Fernando Lima</span>
+          <span class="patient-cpf">CPF: 876.543.210-99</span>
+        </div>
+        <div class="record-summary">
+          <p><strong>Última Atualização:</strong> 10/07/2024</p>
+          <p><strong>Diagnóstico Principal:</strong> Diabetes Mellitus Tipo 2</p>
+        </div>
+        <div class="record-actions">
+          <button class="btn-action btn-view-record">Ver Prontuário Completo</button>
+          <button class="btn-action btn-add-entry">Nova Anotação</button>
+        </div>
+      </div>
+      <!-- Mais prontuários aqui... -->
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="records-footer">
+      <a href="dashboard-profissional.html" class="btn-voltar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        Voltar ao Dashboard
+      </a>
+    </footer>
+  </div>
+
+</body>
+</html>

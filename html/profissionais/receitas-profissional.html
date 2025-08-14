@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prescrições Médicas - SGP</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="receitas-profissional.css">
+</head>
+<body>
+
+  <div class="prescriptions-wrapper">
+    <!-- Cabeçalho -->
+    <header class="prescriptions-header">
+      <h1>Gerador de Prescrições</h1>
+      <p>Crie, gerencie e envie receitas médicas digitais.</p>
+    </header>
+
+    <!-- Formulário de Prescrição -->
+    <main class="prescription-form-container">
+      <form class="prescription-form">
+        <div class="form-section patient-info">
+          <h2>1. Informações do Paciente</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="patient-name">Nome do Paciente</label>
+              <input type="text" id="patient-name" placeholder="Buscar paciente...">
+            </div>
+            <div class="form-group">
+              <label for="prescription-date">Data da Prescrição</label>
+              <input type="date" id="prescription-date">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section medication-list">
+          <h2>2. Medicamentos</h2>
+          <div id="medications-container">
+            <!-- Exemplo de Medicamento -->
+            <div class="medication-item">
+              <input type="text" placeholder="Nome do Medicamento">
+              <input type="text" placeholder="Dosagem (ex: 500mg)">
+              <input type="text" placeholder="Frequência (ex: 1 a cada 8h)">
+              <button type="button" class="btn-remove-med">Remover</button>
+            </div>
+          </div>
+          <button type="button" id="add-medication" class="btn-add-med">Adicionar Medicamento</button>
+        </div>
+
+        <div class="form-section instructions">
+          <h2>3. Instruções Adicionais</h2>
+          <textarea id="additional-instructions" rows="4" placeholder="Recomendações, duração do tratamento, etc."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-action btn-preview">Pré-visualizar</button>
+          <button type="submit" class="btn-action btn-generate">Gerar e Assinar Digitalmente</button>
+        </div>
+      </form>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="prescriptions-footer">
+      <a href="dashboard-profissional.html" class="btn-voltar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        Voltar ao Dashboard
+      </a>
+    </footer>
+  </div>
+
+</body>
+</html>

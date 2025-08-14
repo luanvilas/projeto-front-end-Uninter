@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatórios Médicos</title>
+  <link rel="stylesheet" href="relatorio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="relatorio-wrapper">
+    <header class="relatorio-header">
+      <h1>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        Relatórios Médicos
+      </h1>
+      <p>Geração e gerenciamento de relatórios médicos do hospital</p>
+    </header>
+
+    <div class="dashboard-stats">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <div class="stat-value">128</div>
+          <div class="stat-label">Relatórios Emitidos</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <div class="stat-value">42</div>
+          <div class="stat-label">Relatórios este Mês</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <div class="stat-value">18</div>
+          <div class="stat-label">Médicos Ativos</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <div class="stat-value">85%</div>
+          <div class="stat-label">Taxa de Aprovação</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="relatorio-section">
+      <h2>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        Novo Relatório
+      </h2>
+      <form id="relatorio-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="paciente">Paciente</label>
+            <input type="text" id="paciente" class="form-control" placeholder="Nome do paciente" required>
+          </div>
+          <div class="form-group">
+            <label for="tipo-relatorio">Tipo de Relatório</label>
+            <select id="tipo-relatorio" class="form-control" required>
+              <option value="">Selecione o tipo</option>
+              <option value="fiscal">Relatório Fiscal</option>
+              <option value="internacao">Relatório de Internação</option>
+              <option value="consulta">Relatório de Consultas</option>
+              <option value="exame">Relatório de Exames</option>
+              <option value="medico">Relatório de Médicos</option>
+              <option value="falta">Relatório de Faltas</option>
+              <option value="desempenho">Relatório de Desempenho Médico</option>
+              <option value="atestado">Atestado Médico</option>
+              <option value="alta">Relatório de Alta</option>
+              <option value="receita">Receita Médica</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="medico-responsavel">Médico Responsável</label>
+            <input type="text" id="medico-responsavel" class="form-control" placeholder="Nome do médico" required>
+          </div>
+          <div class="form-group">
+            <label for="data-emissao">Data de Emissão</label>
+            <input type="date" id="data-emissao" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="validade">Validade (dias)</label>
+            <input type="number" id="validade" class="form-control" min="1" value="30">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="conteudo">Conteúdo do Relatório</label>
+          <textarea id="conteudo" class="form-control" rows="6" placeholder="Descreva o conteúdo do relatório..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Anexos</label>
+          <div class="upload-area" id="upload-area">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <p>Arraste arquivos ou clique para anexar</p>
+            <input type="file" id="file-upload" multiple style="display: none;">
+          </div>
+          <div class="anexos-lista" id="anexos-lista"></div>
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+              <polyline points="17 21 17 13 7 13 7 21"></polyline>
+              <polyline points="7 3 7 8 15 8"></polyline>
+            </svg>
+            Gerar Relatório
+          </button>
+          <button type="button" class="btn-secondary" id="btn-preview">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            Visualizar
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="relatorio-section">
+      <h2>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 11 12 14 22 4"></polyline>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+        </svg>
+        Relatórios Recentes
+      </h2>
+
+      <div class="relatorios-lista">
+        <div class="relatorio-item">
+          <div class="relatorio-info">
+            <h3>Relatório de Internação - Maria Silva</h3>
+            <span class="tag-internacao">Internação</span>
+            <p>Emitido em: 15/05/2023 | Dr. Carlos Mendes</p>
+          </div>
+          <div class="relatorio-acoes">
+            <button class="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+            <button class="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="relatorio-item">
+          <div class="relatorio-info">
+            <h3>Relatório Fiscal - 1º Trimestre 2023</h3>
+            <span class="tag-fiscal">Fiscal</span>
+            <p>Emitido em: 10/04/2023 | Administração</p>
+          </div>
+          <div class="relatorio-acoes">
+            <button class="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+            <button class="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="relatorio-item">
+          <div class="relatorio-info">
+            <h3>Atestado Médico - João Pereira</h3>
+            <span class="tag-atestado">Atestado</span>
+            <p>Emitido em: 05/05/2023 | Dra. Ana Beatriz</p>
+          </div>
+          <div class="relatorio-acoes">
+            <button class="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+            <button class="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="relatorio-item">
+          <div class="relatorio-info">
+            <h3>Relatório de Desempenho Médico - Abril 2023</h3>
+            <span class="tag-desempenho">Desempenho</span>
+            <p>Emitido em: 02/05/2023 | Diretoria Clínica</p>
+          </div>
+          <div class="relatorio-acoes">
+            <button class="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+            <button class="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="relatorio-item">
+          <div class="relatorio-info">
+            <h3>Relatório de Alta - Pedro Santos</h3>
+            <span class="tag-alta">Alta</span>
+            <p>Emitido em: 28/04/2023 | Dr. Roberto Alves</p>
+          </div>
+          <div class="relatorio-acoes">
+            <button class="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+            <button class="btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-back" onclick="window.location.href='dashadm.html'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Voltar
+    </button>
+  </div>
+
+  <script>
+    // Inicializar data de emissão com a data atual
+    document.addEventListener('DOMContentLoaded', function() {
+      const hoje = new Date().toISOString().split('T')[0];
+      document.getElementById('data-emissao').value = hoje;
+      
+      // Configurar área de upload
+      const uploadArea = document.getElementById('upload-area');
+      const fileInput = document.getElementById('file-upload');
+      const anexosLista = document.getElementById('anexos-lista');
+      
+      uploadArea.addEventListener('click', function() {
+        fileInput.click();
+      });
+      
+      uploadArea.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        uploadArea.classList.add('dragover');
+      });
+      
+      uploadArea.addEventListener('dragleave', function() {
+        uploadArea.classList.remove('dragover');
+      });
+      
+      uploadArea.addEventListener('drop', function(e) {
+        e.preventDefault();
+        uploadArea.classList.remove('dragover');
+        handleFiles(e.dataTransfer.files);
+      });
+      
+      fileInput.addEventListener('change', function() {
+        handleFiles(this.files);
+      });
+      
+      function handleFiles(files) {
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+          const anexoItem = document.createElement('div');
+          anexoItem.className = 'anexo-item';
+          
+          const fileName = document.createElement('span');
+          fileName.textContent = file.name;
+          
+          const removeBtn = document.createElement('button');
+          removeBtn.className = 'btn-remover';
+          removeBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+          removeBtn.addEventListener('click', function() {
+            anexoItem.remove();
+          });
+          
+          anexoItem.appendChild(fileName);
+          anexoItem.appendChild(removeBtn);
+          anexosLista.appendChild(anexoItem);
+        }
+      }
+      
+      // Configurar formulário
+      const form = document.getElementById('relatorio-form');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Relatório gerado com sucesso!');
+      });
+      
+      // Configurar botão de preview
+      const btnPreview = document.getElementById('btn-preview');
+      btnPreview.addEventListener('click', function() {
+        alert('Visualização do relatório');
+      });
+    });
+  </script>
+</body>
+</html>

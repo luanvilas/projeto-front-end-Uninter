@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Insumos - Vida Plus</title>
+  <link rel="stylesheet" href="insumos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="insumos-wrapper">
+    <header class="insumos-header">
+      <h1>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+          <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        </svg>
+        Gestão de Insumos
+      </h1>
+      <p>Controle de estoque e solicitação de insumos hospitalares</p>
+    </header>
+
+    <div class="dashboard-stats">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">156</span>
+          <span class="stat-label">Itens em Estoque</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">12</span>
+          <span class="stat-label">Itens em Falta</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">8</span>
+          <span class="stat-label">Vencendo em 30 dias</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">23</span>
+          <span class="stat-label">Solicitações Pendentes</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="insumos-section">
+      <h2>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        Estoque de Insumos
+      </h2>
+      
+      <div class="filtros">
+        <div class="filtro-grupo">
+          <label for="categoria-filtro">Categoria</label>
+          <select id="categoria-filtro" class="form-control">
+            <option value="">Todas as categorias</option>
+            <option value="epi">EPI - Equipamentos de Proteção</option>
+            <option value="medicamentos">Medicamentos</option>
+            <option value="descartaveis">Materiais Descartáveis</option>
+            <option value="limpeza">Produtos de Limpeza</option>
+            <option value="cirurgicos">Materiais Cirúrgicos</option>
+          </select>
+        </div>
+        
+        <div class="filtro-grupo">
+          <label for="status-filtro">Status</label>
+          <select id="status-filtro" class="form-control">
+            <option value="">Todos os status</option>
+            <option value="disponivel">Disponível</option>
+            <option value="baixo">Estoque Baixo</option>
+            <option value="critico">Estoque Crítico</option>
+            <option value="vencendo">Vencendo</option>
+          </select>
+        </div>
+        
+        <div class="filtro-grupo">
+          <input type="text" id="busca-insumo" class="form-control" placeholder="Buscar insumo...">
+        </div>
+      </div>
+
+      <div class="insumos-grid">
+        <div class="insumo-card" data-categoria="epi" data-status="disponivel">
+          <div class="insumo-header">
+            <h3>Luvas Descartáveis</h3>
+            <span class="status-badge status-disponivel">Disponível</span>
+          </div>
+          <div class="insumo-info">
+            <p><strong>Categoria:</strong> EPI - Equipamentos de Proteção</p>
+            <p><strong>Quantidade:</strong> 2.500 unidades</p>
+            <p><strong>Estoque Mínimo:</strong> 500 unidades</p>
+            <p><strong>Validade:</strong> 12/2025</p>
+            <p><strong>Localização:</strong> Almoxarifado A - Prateleira 3</p>
+          </div>
+          <div class="insumo-acoes">
+            <button class="btn-icon" title="Editar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+            </button>
+            <button class="btn-icon" title="Histórico">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="insumo-card" data-categoria="epi" data-status="baixo">
+          <div class="insumo-header">
+            <h3>Máscaras N95</h3>
+            <span class="status-badge status-baixo">Estoque Baixo</span>
+          </div>
+          <div class="insumo-info">
+            <p><strong>Categoria:</strong> EPI - Equipamentos de Proteção</p>
+            <p><strong>Quantidade:</strong> 150 unidades</p>
+            <p><strong>Estoque Mínimo:</strong> 200 unidades</p>
+            <p><strong>Validade:</strong> 08/2024</p>
+            <p><strong>Localização:</strong> Almoxarifado A - Prateleira 1</p>
+          </div>
+          <div class="insumo-acoes">
+            <button class="btn-icon" title="Editar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+            </button>
+            <button class="btn-icon" title="Histórico">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="insumo-card" data-categoria="limpeza" data-status="disponivel">
+          <div class="insumo-header">
+            <h3>Álcool 70%</h3>
+            <span class="status-badge status-disponivel">Disponível</span>
+          </div>
+          <div class="insumo-info">
+            <p><strong>Categoria:</strong> Produtos de Limpeza</p>
+            <p><strong>Quantidade:</strong> 80 litros</p>
+            <p><strong>Estoque Mínimo:</strong> 20 litros</p>
+            <p><strong>Validade:</strong> 03/2025</p>
+            <p><strong>Localização:</strong> Almoxarifado B - Prateleira 2</p>
+          </div>
+          <div class="insumo-acoes">
+            <button class="btn-icon" title="Editar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+            </button>
+            <button class="btn-icon" title="Histórico">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="insumo-card" data-categoria="descartaveis" data-status="critico">
+          <div class="insumo-header">
+            <h3>Seringas 10ml</h3>
+            <span class="status-badge status-critico">Estoque Crítico</span>
+          </div>
+          <div class="insumo-info">
+            <p><strong>Categoria:</strong> Materiais Descartáveis</p>
+            <p><strong>Quantidade:</strong> 25 unidades</p>
+            <p><strong>Estoque Mínimo:</strong> 100 unidades</p>
+            <p><strong>Validade:</strong> 06/2026</p>
+            <p><strong>Localização:</strong> Almoxarifado C - Prateleira 1</p>
+          </div>
+          <div class="insumo-acoes">
+            <button class="btn-icon" title="Editar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+            </button>
+            <button class="btn-icon" title="Histórico">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="insumo-card" data-categoria="descartaveis" data-status="vencendo">
+          <div class="insumo-header">
+            <h3>Agulhas 25G</h3>
+            <span class="status-badge status-vencendo">Vencendo</span>
+          </div>
+          <div class="insumo-info">
+            <p><strong>Categoria:</strong> Materiais Descartáveis</p>
+            <p><strong>Quantidade:</strong> 300 unidades</p>
+            <p><strong>Estoque Mínimo:</strong> 50 unidades</p>
+            <p><strong>Validade:</strong> 15/01/2024</p>
+            <p><strong>Localização:</strong> Almoxarifado C - Prateleira 2</p>
+          </div>
+          <div class="insumo-acoes">
+            <button class="btn-icon" title="Editar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+            </button>
+            <button class="btn-icon" title="Histórico">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="insumo-card" data-categoria="cirurgicos" data-status="disponivel">
+          <div class="insumo-header">
+            <h3>Gazes Estéreis</h3>
+            <span class="status-badge status-disponivel">Disponível</span>
+          </div>
+          <div class="insumo-info">
+            <p><strong>Categoria:</strong> Materiais Cirúrgicos</p>
+            <p><strong>Quantidade:</strong> 500 pacotes</p>
+            <p><strong>Estoque Mínimo:</strong> 100 pacotes</p>
+            <p><strong>Validade:</strong> 09/2025</p>
+            <p><strong>Localização:</strong> Almoxarifado D - Prateleira 1</p>
+          </div>
+          <div class="insumo-acoes">
+            <button class="btn-icon" title="Editar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+            </button>
+            <button class="btn-icon" title="Histórico">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insumos-section">
+      <h2>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        Solicitação de Insumos
+      </h2>
+      <p>Preencha os dados abaixo para solicitar novos insumos para o estoque</p>
+      
+      <form id="solicitacao-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="categoria-solicitacao">Categoria</label>
+            <select id="categoria-solicitacao" class="form-control" required>
+              <option value="">Selecione a categoria</option>
+              <option value="epi">EPI - Equipamentos de Proteção</option>
+              <option value="medicamentos">Medicamentos</option>
+              <option value="descartaveis">Materiais Descartáveis</option>
+              <option value="limpeza">Produtos de Limpeza</option>
+              <option value="cirurgicos">Materiais Cirúrgicos</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="insumo-nome">Nome do Insumo</label>
+            <input type="text" id="insumo-nome" class="form-control" placeholder="Digite o nome do insumo" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="quantidade-solicitada">Quantidade Solicitada</label>
+            <input type="number" id="quantidade-solicitada" class="form-control" min="1" placeholder="Ex: 100" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="unidade-medida">Unidade de Medida</label>
+            <select id="unidade-medida" class="form-control" required>
+              <option value="">Selecione a unidade</option>
+              <option value="unidades">Unidades</option>
+              <option value="caixas">Caixas</option>
+              <option value="pacotes">Pacotes</option>
+              <option value="litros">Litros</option>
+              <option value="quilos">Quilos</option>
+              <option value="metros">Metros</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="prioridade">Prioridade</label>
+            <select id="prioridade" class="form-control" required>
+              <option value="">Selecione a prioridade</option>
+              <option value="baixa">Baixa</option>
+              <option value="media">Média</option>
+              <option value="alta">Alta</option>
+              <option value="urgente">Urgente</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="justificativa">Justificativa</label>
+          <textarea id="justificativa" class="form-control" rows="4" placeholder="Descreva a necessidade e justificativa para a solicitação..." required></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="data-necessidade">Data de Necessidade</label>
+            <input type="date" id="data-necessidade" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="fornecedor-sugerido">Fornecedor Sugerido (Opcional)</label>
+            <input type="text" id="fornecedor-sugerido" class="form-control" placeholder="Nome do fornecedor">
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            Enviar Solicitação
+          </button>
+          <button type="button" class="btn-secondary" id="btn-limpar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg>
+            Limpar Formulário
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <button class="btn-back" onclick="window.location.href='dashadm.html'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Voltar
+    </button>
+  </div>
+
+  <script>
+    // Inicializar data de necessidade com data atual + 7 dias
+    document.addEventListener('DOMContentLoaded', function() {
+      const hoje = new Date();
+      const dataNecessidade = new Date(hoje.getTime() + (7 * 24 * 60 * 60 * 1000));
+      const dataFormatada = dataNecessidade.toISOString().split('T')[0];
+      document.getElementById('data-necessidade').value = dataFormatada;
+      
+      // Filtros de estoque
+      const categoriaFiltro = document.getElementById('categoria-filtro');
+      const statusFiltro = document.getElementById('status-filtro');
+      const buscaInsumo = document.getElementById('busca-insumo');
+      const insumoCards = document.querySelectorAll('.insumo-card');
+      
+      function filtrarInsumos() {
+        const categoriaValue = categoriaFiltro.value;
+        const statusValue = statusFiltro.value;
+        const buscaValue = buscaInsumo.value.toLowerCase();
+        
+        insumoCards.forEach(card => {
+          const categoria = card.dataset.categoria;
+          const status = card.dataset.status;
+          const nome = card.querySelector('h3').textContent.toLowerCase();
+          
+          const categoriaMatch = !categoriaValue || categoria === categoriaValue;
+          const statusMatch = !statusValue || status === statusValue;
+          const nomeMatch = !buscaValue || nome.includes(buscaValue);
+          
+          if (categoriaMatch && statusMatch && nomeMatch) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+      
+      categoriaFiltro.addEventListener('change', filtrarInsumos);
+      statusFiltro.addEventListener('change', filtrarInsumos);
+      buscaInsumo.addEventListener('input', filtrarInsumos);
+      
+      // Formulário de solicitação
+      const form = document.getElementById('solicitacao-form');
+      const btnLimpar = document.getElementById('btn-limpar');
+      
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Solicitação enviada com sucesso! Você receberá uma confirmação por email.');
+        form.reset();
+        // Resetar data de necessidade
+        document.getElementById('data-necessidade').value = dataFormatada;
+      });
+      
+      btnLimpar.addEventListener('click', function() {
+        form.reset();
+        document.getElementById('data-necessidade').value = dataFormatada;
+      });
+    });
+  </script>
+</body>
+</html>

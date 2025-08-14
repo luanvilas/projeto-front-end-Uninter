@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Exames</title>
+  <link rel="stylesheet" href="exames.css">
+</head>
+<body>
+  <h1>Meus Exames</h1>
+  <div class="exame-container">
+    <h2>Resultado de Hemograma Completo</h2>
+    <p>
+      Realizado em: <strong>03/07/2025</strong><br>
+      Local: Laboratório Vita Saúde<br>
+      Status: <span class="status-indisponivel">Indisponivel</span>
+    </p>
+    <button onclick="mostrarMensagem()">Download</button>
+    <script>
+      function mostrarMensagem() {
+        alert("Resultado Indisponivel!");
+      }
+    </script>
+  </div>
+  <br>
+  <div class="exame-container">
+    <h2>Laudo de Ressonância Magnética</h2>
+    <p>
+      Realizado em: <strong>10/04/2025</strong><br>
+      Local: Clínica Imagem & Cia<br>
+      Status: <span class="status">Disponível</span>
+    </p>
+    <button onclick="mostrarMensagem()">Dowload</button>
+    <script>
+
+  function mostrarMensagem() {
+    alert("Arquivo baixado com sucesso!");
+  }
+</script>
+
+</div>
+      <button onclick="window.location.href='../../index.html#opcoes'">Voltar</button>
+</body>
+</html>

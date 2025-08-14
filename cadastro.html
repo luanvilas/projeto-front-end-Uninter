@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Vida Plus</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Cadastro Vida Plus</h2>
+        <input type="text" id="nome" placeholder="Nome Completo">
+        <input type="email" id="email" placeholder="E-mail">
+        <input type="text" id="username" placeholder="Nome de Usuário">
+        <input type="password" id="password" placeholder="Senha">
+        <input type="password" id="confirm-password" placeholder="Confirmar Senha">
+        <select id="role" onchange="toggleCRM()">
+            <option value="paciente">Paciente</option>
+            <option value="profissional">Profissional</option>
+        </select>
+        <input type="text" id="crm" placeholder="CRM (apenas para profissionais)" style="display: none;">
+        <button onclick="realizarCadastro()">Cadastrar</button>
+        <button onclick="window.location.href='../index.html'" style="margin-top: 16px;">Voltar</button>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>

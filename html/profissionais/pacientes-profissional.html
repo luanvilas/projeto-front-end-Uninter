@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Pacientes - SGP</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="pacientes-profissional.css">
+</head>
+<body>
+
+  <div class="patients-wrapper">
+    <!-- Cabeçalho -->
+    <header class="patients-header">
+      <h1>Meus Pacientes</h1>
+      <p>Gerencie as informações e o histórico dos seus pacientes.</p>
+    </header>
+
+    <!-- Barra de Ferramentas -->
+    <div class="toolbar">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar paciente">
+        <button class="btn-search">
+
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+       xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <circle cx="11" cy="11" r="8"></circle>
+    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+  
+        </button>
+      </div>
+      <button class="btn-add-patient">Adicionar Novo Paciente</button>
+    </div>
+
+    <!-- Lista de Pacientes -->
+    <main class="patients-list">
+      <!-- Exemplo de Card de Paciente -->
+      <div class="patient-card">
+        <div class="patient-info">
+          <img src="../assets/avatar-placeholder.svg" alt="Avatar do Paciente" class="patient-avatar">
+          <div class="patient-details">
+            <span class="patient-name">Ana Beatriz Silva</span>
+            <span class="patient-meta">CPF: 123.456.789-00</span>
+          </div>
+        </div>
+        <div class="patient-contact">
+          <span class="last-consultation">Última Consulta: 15/06/2024</span>
+        </div>
+        <div class="patient-actions">
+          <button class="btn-action btn-view-history">Ver Histórico</button>
+          <button class="btn-action btn-edit">Editar</button>
+        </div>
+      </div>
+
+      <div class="patient-card">
+        <div class="patient-info">
+          <img src="../assets/avatar-placeholder.svg" alt="Avatar do Paciente" class="patient-avatar">
+          <div class="patient-details">
+            <span class="patient-name">Roberto Dias</span>
+            <span class="patient-meta">CPF: 987.654.321-11</span>
+          </div>
+        </div>
+        <div class="patient-contact">
+          <span class="last-consultation">Última Consulta: 02/07/2024</span>
+        </div>
+        <div class="patient-actions">
+          <button class="btn-action btn-view-history">Ver Histórico</button>
+          <button class="btn-action btn-edit">Editar</button>
+        </div>
+      </div>
+      <!-- Mais pacientes aqui... -->
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="patients-footer">
+      <a href="dashboard-profissional.html" class="btn-voltar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        Voltar ao Dashboard
+      </a>
+    </footer>
+  </div>
+
+</body>
+</html>
