@@ -98,6 +98,45 @@ button:hover {
   box-shadow: 0 4px 12px rgba(44, 123, 229, 0.2);
 }
 
+.terms-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.terms-container input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.terms-container label {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.terms-container a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.terms-container a:hover {
+  text-decoration: underline;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.5s;
+  animation-iteration-count: 1;
+}
+
 button:active {
   transform: translateY(0);
   box-shadow: none;
@@ -193,12 +232,11 @@ button[onclick*="logout"]:hover {
   }
 
   input, select, button {
-    font-size: 16px; /* Previne zoom em iOS */
+    font-size: 16px; 
     padding: 0.625rem 0.875rem;
   }
 }
 
-/* Telas muito pequenas */
 @media (max-width: 320px) {
   body {
     padding: 0.5rem;
@@ -214,31 +252,3 @@ button[onclick*="logout"]:hover {
   }
 }
 
-/* Suporte a dark mode do sistema */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #1a2234;
-    --card-color: #2a3447;
-    --text-color: #e3ebf6;
-    --border-color: #3a4659;
-  }
-
-  input, select {
-    background-color: #1a2234;
-    color: var(--text-color);
-  }
-
-  .menu button {
-    background-color: #2a3447;
-  }
-}
-
-/* Prevenção de animações para usuários que preferem redução de movimento */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}

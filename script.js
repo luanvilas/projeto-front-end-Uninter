@@ -7,12 +7,16 @@ function login() {
   if (user && pass) {
     if (role === 'profissional') {
       window.location.href = 'html/profissionais/dashboard-profissional.html';
-
     } else if (role === 'adm') {
       window.location.href = 'html/adm/dashadm.html';
     } else {
-      document.getElementById("login").style.display = "none";
-      document.getElementById("dashboard").style.display = "block";
+      const loginElement = document.getElementById("login");
+      const dashboardElement = document.getElementById("dashboard");
+      
+      if (loginElement && dashboardElement) {
+        loginElement.style.display = "none";
+        dashboardElement.style.display = "block";
+      }
     }
   } else {
     alert("Preencha todos os campos!");
@@ -24,18 +28,58 @@ function login() {
 function toggleCRM() {
   const role = document.getElementById("role").value;
   const crmField = document.getElementById("crm");
-  crmField.style.display = role === 'profissional' ? 'block' : 'none';
-  crmField.required = role === 'profissional';
+  const adminIdField = document.getElementById("admin-id");
+  
+  if (crmField) {
+    crmField.style.display = role === 'profissional' ? 'block' : 'none';
+    crmField.required = role === 'profissional';
+  }
+  
+  if (adminIdField) {
+    adminIdField.style.display = role === 'adm' ? 'block' : 'none';
+    adminIdField.required = role === 'adm';
+  }
 }
 
 function realizarCadastro() {
-  const nome = document.getElementById("nome").value;
-  const email = document.getElementById("email").value;
-  const user = document.getElementById("username").value;
-  const pass = document.getElementById("password").value;
-  const confirmPass = document.getElementById("confirm-password").value;
-  const role = document.getElementById("role").value;
-  const crm = document.getElementById("crm").value;
+  const nomeElement = document.getElementById("nome");
+  const emailElement = document.getElementById("email");
+  const userElement = document.getElementById("username");
+  const passElement = document.getElementById("password");
+  const confirmPassElement = document.getElementById("confirm-password");
+  const roleElement = document.getElementById("role");
+  const crmElement = document.getElementById("crm");
+  const adminIdElement = document.getElementById("admin-id");
+  const termsCheckbox = document.getElementById("terms-checkbox");
+  const termsContainer = document.getElementById("terms-container");
+  
+  if (!nomeElement || !emailElement || !userElement || !passElement || !confirmPassElement || !roleElement || !termsCheckbox) {
+    console.error("Elementos do formulário não encontrados");
+    return;
+  }
+  
+  const nome = nomeElement.value;
+  const email = emailElement.value;
+  const user = userElement.value;
+  const pass = passElement.value;
+  const confirmPass = confirmPassElement.value;
+  const role = roleElement.value;
+  const crm = crmElement ? crmElement.value : "";
+  const adminId = adminIdElement ? adminIdElement.value : "";
+  const termsAccepted = termsCheckbox.checked;
+
+  // Verificar se os termos foram aceitos
+  if (!termsAccepted) {
+    
+    
+    // Remover a classe após a animação terminar
+    setTimeout(() => {
+      termsContainer.classList.remove("shake");
+    }, 500);
+    
+    alert("Você precisa aceitar os Termos de Uso e Política de Privacidade para continuar.");
+    return;
+  }
 
   if (nome && email && user && pass && confirmPass) {
     if (pass !== confirmPass) {
@@ -47,13 +91,14 @@ function realizarCadastro() {
       alert("Por favor, informe o CRM!");
       return;
     }
+    
+    if (role === 'adm' && !adminId) {
+      alert("Por favor, informe o ID de administrador!");
+      return;
+    }
 
     alert("Cadastro realizado com sucesso!");
-    if (role === 'profissional') {
-      window.location.href = 'index.html';
-    } else {
-      window.location.href = '../index.html#opcoes';
-    }
+    window.location.href = 'index.html';
   } else {
     alert("Preencha todos os campos!");
   }
@@ -61,16 +106,40 @@ function realizarCadastro() {
 
 window.onload = function() {
   if (window.location.hash === '#opcoes') {
-    document.getElementById("login").style.display = "none";
-    document.getElementById("dashboard").style.display = "block";
+    const loginElement = document.getElementById("login");
+    const dashboardElement = document.getElementById("dashboard");
+    
+    if (loginElement && dashboardElement) {
+      loginElement.style.display = "none";
+      dashboardElement.style.display = "block";
+    }
+  }
+  
+  // Inicializa o campo CRM se estivermos na página de cadastro
+  const roleSelect = document.getElementById("role");
+  if (roleSelect) {
+    toggleCRM();
   }
 }
 
 function logout() {
-  document.getElementById("login").style.display = "block";
-  document.getElementById("dashboard").style.display = "none";
-  document.getElementById("username").value = "";
-  document.getElementById("password").value = "";
+  const loginElement = document.getElementById("login");
+  const dashboardElement = document.getElementById("dashboard");
+  const usernameElement = document.getElementById("username");
+  const passwordElement = document.getElementById("password");
+  
+  if (loginElement && dashboardElement) {
+    loginElement.style.display = "block";
+    dashboardElement.style.display = "none";
+  }
+  
+  if (usernameElement) {
+    usernameElement.value = "";
+  }
+  
+  if (passwordElement) {
+    passwordElement.value = "";
+  }
 }
 
 

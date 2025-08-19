@@ -225,28 +225,4 @@
     }
   }
   
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background-color: #0f172a;
-      --text-color: #e2e8f0;
-      --border-color: #1e293b;
-      --card-bg: #1e293b;
-      --hover-bg: #334155;
-    }
   
-    .dashboard-header {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      opacity: 0.9;
-    }
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-  }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - Vida Plus</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="login-container">
@@ -17,11 +17,19 @@
         <select id="role" onchange="toggleCRM()">
             <option value="paciente">Paciente</option>
             <option value="profissional">Profissional</option>
+            <option value="adm">Administrador</option>
         </select>
         <input type="text" id="crm" placeholder="CRM (apenas para profissionais)" style="display: none;">
+        <input type="text" id="admin-id" placeholder="ID (apenas para administradores)" style="display: none;">
+
+        <div class="terms-container" id="terms-container">
+            <input type="checkbox" id="terms-checkbox">
+            <label for="terms-checkbox">Concordo com os <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade (LGPD)</a></label>
+        </div>
+
         <button onclick="realizarCadastro()">Cadastrar</button>
-        <button onclick="window.location.href='../index.html'" style="margin-top: 16px;">Voltar</button>
+        <button onclick="window.location.href='index.html'" style="margin-top: 16px;">Voltar</button>
     </div>
-    <script src="../script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
